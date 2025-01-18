@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fire Chasing Robot</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-image: url("bg1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+      }
+
+      .main_wrapper {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0)
+        );
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        margin: 6rem auto;
+        gap: 10px;
+        padding: 15px;
+        width: 70%;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .dht {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px;
+      }
+
+      .temp,
+      .fire,
+      .humidity,
+      .smoke,
+      .title {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0)
+        );
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        padding: 8px 8px 8px 20px;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+      .title:hover,
+      .temp:hover,
+      .fire:hover,
+      .humidity:hover,
+      .smoke:hover {
+        box-shadow: 0 2px 5px rgba(255, 0, 0, 0.6);
+        background: linear-gradient(135deg, #ff0000, #1a1a1a);
+      }
+
+      .right img {
+        width: 120px;
+        aspect-ratio: 1 / 1;
+      }
+
+      .fire img {
+        width: 200px;
+        aspect-ratio: 1 / 1;
+      }
+
+      .right {
+        padding-right: 10px;
+        display: grid;
+        grid-template-rows: auto;
+        row-gap: 10px;
+      }
+
+      h1 {
+        color: white;
+        margin: 0 0 10px 0;
+        text-align: center;
+      }
+
+      p {
+        color: white;
+      }
+
+      .smoke p,
+      .fire p {
+        font-size: 25px;
+      }
+
+      .dht p {
+        font-size: 18px;
+      }
+
+      .fire img {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .monitor {
+        display: flex;
+        gap: 5px;
+      }
+
+      h3 {
+        font-size: 30px;
+        color: white;
+      }
+
+      .smoke > .monitor {
+        gap: 20px;
+      }
+      .fire > h3 {
+        text-align: center;
+      }
+
+      .wrapper {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s ease-in-out;
+      }
+
+      a:hover {
+        color: #ff6600;
+      }
+
+      /*.header {
+        margin: 30px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 30px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0)
+        );
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        padding: 15px 20px;
+      }*/
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .main_wrapper {
+          width: 90%;
+        }
+
+        .fire img {
+          width: 150px;
+        }
+
+        .right img {
+          width: 100px;
+        }
+
+        .smoke p,
+        .fire p,
+        h3 {
+          font-size: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .header a {
+          margin: 5px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="header">
+      <a href="">About Us</a>
+      <a href="">Documentation</a>
+    </div> -->
+    <div class="main_wrapper">
+      <h1 class="title">Fire Monitoring System</h1>
+      <div class="wrapper">
+        <div class="fire">
+          <p>Fire:</p>
+          <img src="fire.png" alt="" />
+          <h3>No fire detected!</h3>
+        </div>
+        <div class="right">
+          <div class="smoke">
+            <p>Smoke:</p>
+            <div class="monitor">
+              <img src="smoke.webp" alt="" />
+              <h3>No smoke detected!</h3>
+            </div>
+          </div>
+          <div class="dht">
+            <div class="temp">
+              <p>Temperature:</p>
+              <div class="monitor">
+                <img src="temp.webp" alt="" />
+                <h3 class="tempVal">50°C</h3>
+              </div>
+            </div>
+            <div class="humidity">
+              <p>Humidity:</p>
+              <div class="monitor">
+                <img src="humid.webp" alt="" />
+                <h3 class="humidVal">50°C</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
