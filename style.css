@@ -1,4 +1,4 @@
-    <style>
+
       * {
         box-sizing: border-box;
       }
@@ -145,7 +145,7 @@
       @media (max-width: 1024px) {
         .main_wrapper {
           width: 80%;
-          margin-top: 2rem;
+          margin-top: 10rem;
 
         }
 
@@ -165,7 +165,7 @@
       @media (max-width: 768px) {
         .main_wrapper {
           width: 85%;
-          margin-top: 2rem;
+          margin-top: 10rem;
 
         }
 
@@ -194,7 +194,7 @@
 
         .main_wrapper {
           width: 90%;
-          margin-top: 2rem;
+          margin-top: 10rem;
         }
 
         .fire img {
@@ -211,4 +211,3 @@
           font-size: 20px;
         }
       }
-    </style>
