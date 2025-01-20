@@ -144,6 +144,7 @@ a:hover {
 @media (max-width: 1024px) {
   .main_wrapper {
     width: 80%;
+    margin: 15px auto;
   }
 
   .wrapper {
@@ -159,7 +160,7 @@ a:hover {
   }
 
   .right {
-    padding-right: 5px;
+    padding-right: 0px;
   }
 }
 
@@ -186,7 +187,7 @@ a:hover {
   }
 
   .right {
-    padding-right: 5px;
+    padding-right: 0px;
   }
 }
 
@@ -208,7 +209,7 @@ a:hover {
   }
 
   .right {
-    padding-right: 5px;
+    padding-right: 0px;
   }
 
   .gas p,
