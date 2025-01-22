@@ -1,4 +1,4 @@
-    <style>
+
       * {
         box-sizing: border-box;
       }
@@ -158,6 +158,10 @@
         .right img {
           width: 100px;
         }
+
+        .right {
+          padding-right: 0px;
+        }
       }
 
       @media (max-width: 768px) {
@@ -206,4 +210,3 @@
           font-size: 20px;
         }
       }
-    </style>
